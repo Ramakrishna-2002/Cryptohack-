@@ -1,0 +1,15 @@
+import math 
+v1 = (846835985, 9834798552) 
+v2 = (87502093, 123094980) 
+dot_prod = lambda v1, v2: sum(x*y for x,y in zip(v1,v2)) 
+norm = lambda v: math.sqrt(dot_prod(v,v)) 
+def gaussian_reduction(v1: tuple[int,int], v2: tuple[int,int]) -> tuple[int,int]: 
+    while True: 
+       if norm(v1) > norm(v2): 
+          v1, v2 = v2, v1 #swap vectors 
+          m = int(round(dot_prod(v1,v2) / dot_prod(v1,v1))) 
+          if m == 0: break 
+          v2 = tuple(v2[i] - m*v1[i] for i in range(len(v1))) 
+          return v1, v2 
+u1, u2 = gaussian_reduction(v1,v2) 
+dot_prod(u1,u2)
