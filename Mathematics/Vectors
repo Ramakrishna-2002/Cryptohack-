@@ -1,0 +1,15 @@
+# Given vectors
+v = (2, 6, 3)
+w = (1, 0, 0)
+u = (7, 7, 2)
+
+# Calculate 2 * v - w
+result_step1 = tuple(2 * vi - wi for vi, wi in zip(v, w))
+
+# Calculate 3 * (2 * v - w)
+result_step2 = tuple(3 * vi for vi in result_step1)
+
+# Calculate (3 * (2 * v - w)) dot 2 * u
+result = sum(xi * yi for xi, yi in zip(result_step2, (2 * ui for ui in u)))
+
+print("The result is:", result)
