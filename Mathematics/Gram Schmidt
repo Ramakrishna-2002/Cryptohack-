@@ -1,0 +1,6 @@
+import numpy as np 
+v = [np.array((4,1,3,-1)), np.array((2,1,-3,4)), np.array((1,0,-2,7)), np.array((6, 2, 9, -5))] u = [v[0]] 
+for i in range(1, 4): 
+      new_u = v[i] - sum( (v[i]@u[j]) / (u[j]@u[j]) * u[j] for j in range(i
+      u.append(new_u) 
+round(u[3][1], 5)
