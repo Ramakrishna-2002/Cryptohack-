@@ -1,0 +1,5 @@
+hex_string = "63727970746f7b596f755f77696c6c5f62655f776f726b696e675f776974685f6865785f737472696e67735f615f6c6f747d"
+decimal_values = [int(hex_string[i:i+2], 16) for i in range(0, len(hex_string), 2)]
+# Convert decimal to ASCII
+ascii_characters = ''.join([chr(decimal) for decimal in decimal_values])
+print(ascii_characters)
